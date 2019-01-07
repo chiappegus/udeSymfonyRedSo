@@ -1,0 +1,57 @@
+php bin/console doctrine list
+
+php bin/console doctrine list
+
+php bin/console doctrine:mapping:info
+
+
+php bin/console doctrine:schema:validate
+
+
+php bin/console doctrine:query:sql
+
+para importar de la base de datos a entidades o generar entidades :
+
+
+/*====================================================================
+=            ACA MAPEA DE BASE Y GENERA SOLAMENTE LOS YML            =
+====================================================================*/
+
+php bin/console doctrine:mapping:import backendBundle yml
+
+/*=====  End of ACA MAPEA DE BASE Y GENERA SOLAMENTE LOS YML orm.yaml ======*/
+
+/*==================================================================================
+=            y ahora que estan mapeadas osea en yml hacer las entidades            =
+==================================================================================*/
+
+php bin/console  doctrine:generate:entities backendBundle
+
+/*=====  End of y ahora que estan mapeadas osea en yml hacer las entidades  ======*/
+
+
+resultado :
+
+C:\xampp\htdocs\UDEMY_\php_ude>php bin/console  doctrine:generate:entities backe
+ndBundle
+ NOTE: The doctrine:generate:entities command has been deprecated.
+       To read more about the differences between anemic and rich models go here
+ http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/tutorials/gett
+ing-started.html#adding-behavior-to-entities.
+       If you wish to generate your entities, use make:entity --regenerate from
+MakerBundle instead.
+Generating entities for bundle "backendBundle"
+  > backing up Following.php to Following.php~
+  > generating backendBundle\Entity\Following
+  > backing up Like.php to Like.php~
+  > generating backendBundle\Entity\Like
+  > backing up Notification.php to Notification.php~
+  > generating backendBundle\Entity\Notification
+  > backing up PrivateMessage.php to PrivateMessage.php~
+  > generating backendBundle\Entity\PrivateMessage
+  > backing up Publication.php to Publication.php~
+  > generating backendBundle\Entity\Publication
+  > backing up User.php to User.php~
+  > generating backendBundle\Entity\User
+
+

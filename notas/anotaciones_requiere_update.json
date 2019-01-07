@@ -1,0 +1,6 @@
+ en el require del composer 
+ "knplabs/knp-paginator-bundle":"2.5.*" 
+
+
+ C:\xampp\htdocs\UDEMY_\php_ude
+ composer update

@@ -1,0 +1,176 @@
+php bin/console aparecen todas las opciones
+
+
+Available commands:
+  help                                    Displays help for a command
+  list                                    Lists commands
+ assets
+  assets:install                          Installs bundles web assets under a pu
+blic web directory
+ cache
+  cache:clear                             Clears the cache
+  cache:warmup                            Warms up an empty cache
+ config
+  config:dump-reference                   Dumps the default configuration for an
+ extension
+ debug
+  debug:config                            Dumps the current configuration for an
+ extension
+  debug:container                         Displays current services for an appli
+cation
+  debug:event-dispatcher                  Displays configured listeners for an a
+pplication
+  debug:router                            Displays current routes for an applica
+tion
+  debug:swiftmailer                       Displays current mailers for an applic
+ation
+  debug:translation                       Displays translation messages informat
+ion
+  debug:twig                              Shows a list of twig functions, filter
+s, globals and tests
+ doctrine
+  doctrine:cache:clear                    Flush a given cache
+  doctrine:cache:clear-collection-region  Clear a second-level cache collection
+region.
+  doctrine:cache:clear-entity-region      Clear a second-level cache entity regi
+on.
+  doctrine:cache:clear-metadata           Clears all metadata cache for an entit
+y manager
+  doctrine:cache:clear-query              Clears all query cache for an entity m
+anager
+  doctrine:cache:clear-query-region       Clear a second-level cache query regio
+n.
+  doctrine:cache:clear-result             Clears result cache for an entity mana
+ger
+  doctrine:cache:contains                 Check if a cache entry exists
+  doctrine:cache:delete                   Delete a cache entry
+  doctrine:cache:flush                    Flush a given cache
+  doctrine:cache:stats                    Get stats on a given cache provider
+  doctrine:database:create                Creates the configured database
+  doctrine:database:drop                  Drops the configured database
+  doctrine:database:import                Import SQL file(s) directly to Databas
+e.
+  doctrine:ensure-production-settings     Verify that Doctrine is properly confi
+gured for a production environment.
+  doctrine:generate:crud                  Generates a CRUD based on a Doctrine e
+ntity
+  doctrine:generate:entities              Generates entity classes and method st
+ubs from your mapping information
+  doctrine:generate:entity                Generates a new Doctrine entity inside
+ a bundle
+  doctrine:generate:form                  Generates a form type class based on a
+ Doctrine entity
+  doctrine:mapping:convert                Convert mapping information between su
+pported formats.
+  doctrine:mapping:import                 Imports mapping information from an ex
+isting database
+  doctrine:mapping:info
+  doctrine:query:dql                      Executes arbitrary DQL directly from t
+he command line.
+  doctrine:query:sql                      Executes arbitrary SQL directly from t
+he command line.
+  doctrine:schema:create                  Executes (or dumps) the SQL needed to
+generate the database schema
+  doctrine:schema:drop                    Executes (or dumps) the SQL needed to
+drop the current database schema
+  doctrine:schema:update                  Executes (or dumps) the SQL needed to
+update the database schema to match the current mapping metadata.
+  doctrine:schema:validate                Validate the mapping files.
+ generate
+  generate:bundle                         Generates a bundle
+  generate:command                        Generates a console command
+  generate:controller                     Generates a controller
+  generate:doctrine:crud                  Generates a CRUD based on a Doctrine e
+ntity
+  generate:doctrine:entities              Generates entity classes and method st
+ubs from your mapping information
+  generate:doctrine:entity                Generates a new Doctrine entity inside
+ a bundle
+  generate:doctrine:form                  Generates a form type class based on a
+ Doctrine entity
+ lint
+  lint:twig                               Lints a template and outputs encounter
+ed errors
+  lint:yaml                               Lints a file and outputs encountered e
+rrors
+ orm
+  orm:convert:mapping                     Convert mapping information between su
+pported formats.
+ router
+  router:match                            Helps debug routes by simulating a pat
+h info match
+ security
+  security:check                          Checks security issues in your project
+ dependencies
+  security:encode-password                Encodes a password.
+ server
+  server:run                              Runs PHP built-in web server
+  server:start                            Starts PHP built-in web server in the
+background
+  server:status                           Outputs the status of the built-in web
+ server for the given address
+  server:stop                             Stops PHP's built-in web server that w
+as started with the server:start command
+ swiftmailer
+  swiftmailer:debug                       Displays current mailers for an applic
+ation
+  swiftmailer:email:send                  Send simple email message
+  swiftmailer:spool:send                  Sends emails from the spool
+ translation
+  translation:update                      Updates the translation file
+
+
+C:\xampp\htdocs\UDEMY_\php_ude>php bin/console generate
+
+  [Symfony\Component\Console\Exception\CommandNotFoundException]
+  Command "generate" is not defined.
+  Did you mean one of these?
+
+
+      generate:doctrine:entities
+      generate:doctrine:entity
+      generate:doctrine:crud
+      generate:doctrine:form
+      generate:controller
+      generate:command
+      generate:bundle
+      doctrine:generate:crud
+      doctrine:generate:form
+      doctrine:generate:entity
+      doctrine:generate:entities
+
+
+C:\xampp\htdocs\UDEMY_\php_ude>php bin/console generate:bundle
+
+
+> Checking that the bundle is autoloaded
+OK
+> Enabling the bundle inside C:\xampp\htdocs\UDEMY_\php_ude\app\AppKernel.php
+  updated .\app\AppKernel.php
+OK
+> Importing the bundle's routes from the C:\xampp\htdocs\UDEMY_\php_ude\app\conf
+ig\routing.yml file
+  updated .\app/config/routing.yml
+OK
+> Importing the bundle's services.yml from the C:\xampp\htdocs\UDEMY_\php_ude\ap
+p\config\config.yml file
+  updated .\app/config/config.yml
+OK
+
+
+ Everything is OK! Now get to work :).
+
+
+y correr el server :
+
+http://127.0.0.1:8000
+     //
+php bin/console server:start
+php bin/console server:run
+php bin/console server:stop
+
+
+
+
+
+
