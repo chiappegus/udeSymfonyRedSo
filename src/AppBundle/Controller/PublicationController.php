@@ -12,5 +12,6 @@ class PublicationController extends Controller
   public function indexAction(Request $request)
     {
          echo "accion index Publicacion";
+         die();
     }
 }
