@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}
+	    Caminos Rurales
+		{% endblock %}
+
+	</title>
+
+		{% block stylesheets %}
+          {# incluir estilos ccs  #}		    
+		{% endblock %}
+
+		{% block javaScripts %}
+          {# incluir estilos javaScripts  #}		    
+		{% endblock %}
+</head>
+<body>
+	<header>
+		<h1>Caminos Rurales</h1>
+	</header>
+
+	<section id="content">
+		{% block content %}
+		    Contenido por Caminos Rurales
+		{% endblock %}
+	</section>
+
+
+	<footer>
+		<hr>
+		<p>Gustavo Chiappe</p>
+	</footer>
+</body>
+</html>
