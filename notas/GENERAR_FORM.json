@@ -1,0 +1,3 @@
+GENERAR_FORM.json
+
+php bin/console doctrine:generate:form backendBundle:User
