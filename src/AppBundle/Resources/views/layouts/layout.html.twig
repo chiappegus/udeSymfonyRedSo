@@ -48,7 +48,7 @@
 					</li>
 
 					<li>	
-						<a href="{{path('backend_homepage')}}"><span class="glyphicon glyphicon-user" aria-hidden='true'>	</span> &nbsp; Registro 
+						<a href="{{path('register')}}"><span class="glyphicon glyphicon-user" aria-hidden='true'>	</span> &nbsp; Registro 
 						</a> 
 					</li>
 					
@@ -60,6 +60,25 @@
 	</header>
 
 	<section id="content">
+
+	
+	<div class="container">	
+			
+
+			{% for flash_message in app.session.flashBag.get('status') %}
+				<div class="col-lg-11">	
+
+
+    				<div class="alert alert-success">
+       						 {{ flash_message }}
+    				</div>
+
+    			</div>
+{% endfor %}
+	</div>
+	
+
+		<div class="clearfix">	</div>
 		{% block content %}
 		    Contenido por Caminos Rurales
 		{% endblock %}

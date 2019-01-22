@@ -1,0 +1,31 @@
+noticasFlash
+
+
+https://symfony.com/doc/3.2/controller.html
+
+
+
+use Symfony\Component\HttpFoundation\Request;
+public function updateAction(Request $request)
+{
+    // ...
+
+ if ($form->isSubmitted() && $form->isValid()) {
+        // do some sort of processing
+
+        $this->addFlash(
+            'notice',
+            'Your changes were saved!'
+        );
+        // $this->addFlash() is equivalent to $request->getSession()->getFlashBag()->add()
+
+        return $this->redirectToRoute(...);
+    }
+
+    return $this->render(...);
+}
+
+
+
+
+

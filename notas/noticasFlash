@@ -1,0 +1,48 @@
+noticasFlash
+
+
+https://symfony.com/doc/3.2/controller.html
+
+
+
+use Symfony\Component\HttpFoundation\Request;
+public function updateAction(Request $request)
+{
+    // ...
+
+ if ($form->isSubmitted() && $form->isValid()) {
+        // do some sort of processing
+
+        $this->addFlash(
+            'notice',
+            'Your changes were saved!'
+        );
+        // $this->addFlash() is equivalent to $request->getSession()->getFlashBag()->add()
+
+        return $this->redirectToRoute(...);
+    }
+
+    return $this->render(...);
+}
+
+
+
+
+
+{# app/Resources/views/base.html.twig #}
+
+{# you can read and display just one flash message type... #}
+{% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="flash-notice">
+        {{ flash_message }}
+    </div>
+{% endfor %}
+
+{# ...or you can read and display every flash message available #}
+{% for type, flash_messages in app.session.flashBag.all %}
+    {% for flash_message in flash_messages %}
+        <div class="flash-{{ type }}">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+{% endfor %}

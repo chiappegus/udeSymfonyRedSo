@@ -8,9 +8,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\getDoctrine;
 use Symfony\Component\HttpFoundation\Request;
 use backendBundle\Entity\User;
+/* para los mensajes flash */
+use Symfony\Component\HttpFoundation\Session\Session;
+
+
 
 class UserController extends Controller
 {
+    
+
+
+    public function __construct(){
+        $status='hola';
+        
+       // $this->session =  Session();
+        
+
+    }
     
     public function loginAction(Request $request)
     {
@@ -64,27 +78,29 @@ class UserController extends Controller
         			$user->setPassword($password);
         			$user->setRole('ROLE_USER');
         			$user->setImage(null);
-
+                    // persistimos en el MAnager 
         			$em->persist($user);
+
+                    // y aca agregamos la informacion :) al manager
 
         			$flush=$em->flush();
 
         			if ($flush==null) {
         				$status='Te has registrado correctamente';
+                         $this->addFlash('status','Te has registrado correctamente');
 
         				return $this->redirect("login");
         			}
 
         			else{
+
         				$status='No te  has registrado correctamente';
         			}
-
-
-
 
         			
         		} else{
         			$status ='El usuario ya existe';
+                    $this->addFlash('status','El usuario ya existe');
         		}
 
 
@@ -92,10 +108,13 @@ class UserController extends Controller
         	else
         	{
         		$status='No te has registrado Correstamente';
+                 $this->addFlash('status','El usuario ya existe');
         	}
 
-        	var_dump($status);
-        	die();
+        	/*var_dump($status);
+        	die();*/
+
+           
         }
 
      	return $this->render('AppBundle:User:rEgister.html.twig',
