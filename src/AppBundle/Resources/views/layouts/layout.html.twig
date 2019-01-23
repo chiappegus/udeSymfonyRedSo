@@ -11,15 +11,24 @@
 
 		{% block stylesheets %}
           {# incluir estilos ccs  #}
-          <link rel="stylesheet" type="text/css" href="{{'assets/bootstrap/css/bootstrap.min.css'}}">
-          <link rel="stylesheet" type="text/css" href="{{'assets/css/bootstrap.cosmo.min.css'}}">
-		  <link rel="stylesheet" type="text/css" href="{{'assets/css/styles.css'}}">
+          <link rel="stylesheet" type="text/css" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
+          <link rel="stylesheet" type="text/css"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+          <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.cosmo.min.css')}}">
+		  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/styles.css')}}">
 
 		{% endblock %}
 
 		{% block javaScripts %}
           {# incluir estilos javaScripts  #}
-          <script type="text/javascript"></script>		    
+
+       <script type="text/javascript">
+       var URL ="{{app.request.getSchemeAndHttpHost()}}/UDEMY_/php_ude/web";
+       
+       </script>
+
+          	    
+          <script src="{{asset('assets/js/jquery.min.js')}}"></script>	
+          <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>			    
 		{% endblock %}
 </head>
 <body>

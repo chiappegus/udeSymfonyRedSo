@@ -7,9 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\getDoctrine;
 use Symfony\Component\HttpFoundation\Request;
-use backendBundle\Entity\User;
-/* para los mensajes flash */
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
+use backendBundle\Entity\User;
 
 
 
@@ -120,5 +120,34 @@ class UserController extends Controller
      	return $this->render('AppBundle:User:rEgister.html.twig',
      		array("form"=>$form->createView() 
      			));
+    }
+
+
+    public function nickTestAction(Request $request)
+    {
+        $nick =$request->get("nick");
+
+
+        $em =$this->getDoctrine()->getManager();
+
+        $user_repo=$em->getRepository("backendBundle:User");
+
+        $user_isset=$user_repo->findOneBy(array("nick"=>$nick));
+
+        $result = "used";
+
+        if ( is_object($user_isset)) {
+            
+             $result = "used";
+        } else{
+            $result = "unused";
+        }
+
+        return new Response($result);
+
+        
+
+
+
     }
 }

@@ -1,6 +1,10 @@
 {% extends 'AppBundle:layouts:layout.html.twig' %}
    
+{% block javaScripts %}
 
+        {{parent()}}
+    <script src="{{ asset('assets/js/custom/nick-test.js')}}"></script>	
+{% endblock %}
 
 {% block content %}
 
