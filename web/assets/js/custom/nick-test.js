@@ -3,8 +3,8 @@ $(document).ready(function() {
 	/*  $("#backendbundle_user_nick").click(function(){
     $("#backendbundle_user_nick").hide();
   });
-*/
 
+*/
 	$("#backendbundle_user_nick").blur(function(){
 		var	nick = this.value;
 		console.log(nick); 

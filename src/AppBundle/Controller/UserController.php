@@ -125,7 +125,7 @@ class UserController extends Controller
 
     public function nickTestAction(Request $request)
     {
-        $nick =$request->get("nick");
+        $nick =$request->get("nick");//viaja por post!! gracias al requestr
 
 
         $em =$this->getDoctrine()->getManager();
@@ -136,7 +136,7 @@ class UserController extends Controller
 
         $result = "used";
 
-        if ( is_object($user_isset)) {
+        if ( is_object($user_isset)) { //if ( count($user_isset)>=1 && is_object($user_isset)) 
             
              $result = "used";
         } else{
