@@ -9,7 +9,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\getDoctrine;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use backendBundle\Entity\User;
+
 
 
 
@@ -25,18 +27,39 @@ class UserController extends Controller
         
 
     }
+
+   
     
-    public function loginAction(Request $request)
+    // public function loginAction(AuthenticationUtils $authenticationUtils)
+     public function loginAction(Request $request)
     {
+
+
+            if(is_object($this->getUser())){
+              return  $this->redirect('home');
+            }
         /* echo "accion login";*/
             //die();
+            //
+        
+            //
+         $authenticationUtils = $this->get('security.authentication_utils');
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
 
      	return $this->render('AppBundle:User:login.html.twig',
-     		array("titulo"=>"Login" ));
+     		array('last_username' => $lastUsername,
+        'error'         => $error,));
     }
 
     public function registerAction(Request $request)
     {
+        if(is_object($this->getUser())){
+              return  $this->redirect('home');
+            }
+
+            
         $user = new User();
         $form= $this-> createForm(RegisterType::class,$user);
 

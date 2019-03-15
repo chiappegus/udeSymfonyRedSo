@@ -11,7 +11,6 @@ class PublicationController extends Controller
     
   public function indexAction(Request $request)
     {
-         echo "accion index Publicacion";
-         die();
+        return $this->render('AppBundle:Publication:home.html.twig');
     }
 }
