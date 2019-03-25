@@ -5,9 +5,18 @@
 login:
     path: /login
     defaults: { _controller: AppBundle:User:login }
+    
 
 login_check:
   path: /login_check
+
+loginLDAP:
+    path: /loginLDAP
+    defaults: { _controller: AppBundle:User:login }
+
+
+login_checkLDAP:
+  path: /login_checkLDAP
 
 logout:
   path: /logout  

@@ -31,7 +31,7 @@ class UserController extends Controller
    
     
     // public function loginAction(AuthenticationUtils $authenticationUtils)
-     public function loginAction(Request $request)
+     public function loginAction(/*Request $request*/)
     {
 
 

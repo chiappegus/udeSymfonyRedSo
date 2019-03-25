@@ -8,3 +8,12 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 #    service_name:
+services:
+    ldap:
+        class: Symfony\Component\Ldap\LdapClient
+        arguments:
+            - MAGYP-DC01.MAGYP.AR   # host
+            - 389         # port
+            - 3           # version
+            # - false       # SSL
+            # - true        # TLS

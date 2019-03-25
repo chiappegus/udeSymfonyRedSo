@@ -65,7 +65,46 @@
 					
 				</ul>
                  {% endif %}
+                
 
+                   {% if  is_granted('ROLE_USER_MAGYP') %}
+
+      				<ul class="nav navbar-nav navbar-right">	
+					<li class="dropdown" >	
+						<a  class="dropdown-toggle" data-toggle="dropdown" role ="button" aria-haspopup='true' aria-expanded='false'>
+						{{app.user}} 
+						<span class="caret">	</span>
+						</a> 
+
+						<ul class="dropdown-menu">	
+
+
+                            <li>	<a href=""> <span class="glyphicon glyphicon-cog" aria-hidden="true">	</span>&nbsp;Mis Datos</a> </li>
+
+							
+							<li>	<a href="">
+								<span class="glyphicon glyphicon-user" aria-hidden="true">	</span>&nbsp; Mis perfil </a></li>
+							<li	role="separator" class="divider"></li>
+
+                            <li>	<a href=""> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">	</span>&nbsp;Ayuda</a> </li>
+
+							<li>	<a href="{{path('logout')}}"> <span class="glyphicon glyphicon-log-out" aria-hidden="true">	</span>&nbsp;Salir</a> </li>
+
+
+							
+
+
+							</ul>
+					</li>
+
+					
+				</ul> 
+
+
+
+   					{% endif %} 
+              
+                {% if  is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
 				{% if  app.user != null  %}
                    <ul class="nav navbar-nav navbar-right">	
 					<li class="dropdown" >	
@@ -97,6 +136,7 @@
 
 					
 				</ul> 
+				 {% endif %}
 				{% endif %}
 			</div>
 

@@ -5,15 +5,29 @@ security:
         backendBundle\Entity\User:
             algorithm: bcrypt
             cost: 4
-  
+        Symfony\Component\Security\Core\User\User: 'bcrypt'
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
+        chain_provider:
+            chain:
+                providers: [user_db_provider, my_ldap]
+
         user_db_provider:
             entity:
                 class : backendBundle:User
                 property: email
-            
+        my_ldap:
+            ldap:
+                service: ldap
+                base_dn: 'ou=Magyp Usuarios, dc=magyp, dc=ar'
+                search_dn: 'CN="%env(user)%",OU=Staff-DirNacionalDeMatriculacionYFiscalizacion,OU=Dir Nacional de Matriculacion y Fiscalizacion,OU=Secretaria de Agricultura ganaderia y pesca,OU=Magyp Usuarios,DC=magyp,DC=ar'
+                #search_dn: '(sAMAccountName={username})' 
+                search_password: "%env(DB_PASSWORD)%"
+
+
+
+                default_roles: ROLE_USER_MAGYP    
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -25,10 +39,21 @@ security:
             anonymous: ~
 
             #configuramos el provider user_db_pro
-            provider: user_db_provider
+            provider: chain_provider
             form_login:
                 login_path : /login
                 check_path : /login_check
+            
+            form_login_ldap:
+                # provider: my_ldap
+                service: ldap
+                dn_string: 'MAGYP\{username}'
+                login_path: /loginLDAP
+                check_path: /login_check
+                default_target_path: /
+                username_parameter: _username
+                password_parameter: _password
+
             logout :
                 path : logout
                 target : / 
@@ -45,5 +70,5 @@ security:
     - { path: ^/login , roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/backend_homepage, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/home, roles: ROLE_ADMIN }
+    - { path: ^/home, roles: [ROLE_ADMIN , ROLE_USER , ROLE_USER_MAGYP] }
     - { path: ^/ , roles: IS_AUTHENTICATED_ANONYMOUSLY }
